@@ -1,0 +1,45 @@
+A35 sboot.bin, October 2026 firmware (A356EXXSBDZH1)
+file  : sboot_a35.bin
+size  : 0x800000
+sha256: 797fcba92b90e6ceadd55ffa6adaea64793c4a378c0dca26efc8ce9f89e37484
+s5e8835 at: ['0x5e43', '0x26ee28', '0x4f125f']
+reject 0x81000: LK BSS: []
+LK slice at 0xf1000
+base=0xf4800000 end=0xf6000000 bss=[0xf4c3c000,0xf5079908)
+parallel_download_init = ('0xce800000', '0x7e00000', '0x1e00000')
+compressed_download_init = ('0x890010000', '0x8000000', '0x2000000')
+  reject 0x81000: LK BSS: []
+slice=0xf1000 base=0xf4800000 bss=[0xf4c3c000,0xf5079908)
+
+ref=0x155e0c  window=0x155dec..0x155e9c  (176 bytes)
+MOVZ/MOVK pairs (any dst):
+  0x155e30: x13 = 0x890010000
+  0x155e50: x0 = 0x890010000
+  0x155e84: x0 = 0x89e010000
+MOVZ constants:
+  0x155e30: w13 = 0x90010000
+  0x155e48: w9 = 0x8000000
+  0x155e4c: w10 = 0x2000000
+  0x155e50: w0 = 0x90010000
+  0x155e60: w9 = 0x40
+  0x155e68: w8 = 0x8
+  0x155e70: w2 = 0x8000000
+  0x155e84: w0 = 0x9e010000
+  0x155e8c: w2 = 0x7e00000
+patched input_map: (36775723008, 134217728, 33554432)
+
+ref=0x155ea4  window=0x155e84..0x155f34  (176 bytes)
+MOVZ/MOVK pairs (any dst):
+  0x155e84: x0 = 0x89e010000
+MOVZ constants:
+  0x155e84: w0 = 0x9e010000
+  0x155e8c: w2 = 0x7e00000
+  0x155ed0: w0 = 0x1
+patched input_map: (36775723008, 134217728, 33554432)
+
+ref=0x155edc  window=0x155ebc..0x155f6c  (176 bytes)
+MOVZ/MOVK pairs (any dst):
+  (none in this window)
+MOVZ constants:
+  0x155ed0: w0 = 0x1
+patched input_map: (36775723008, 134217728, 33554432)

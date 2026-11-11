@@ -1,0 +1,29 @@
+diff --git a/resolve.py b/resolve.py
+index 0ca6493..a8b947a 100755
+--- a/resolve.py
++++ b/resolve.py
+@@ -153,10 +153,10 @@ def parallel(data):
+                 if total[2:] != (2, 0, 0x52800000):
+                     continue
+                 for slot in items:
+-                    if slot[2:] != (9, 0, 0x52800000):
++                    if slot[2:] not in ((9, 0, 0x52800000), (10, 0, 0x52800000)):
+                         continue
+                     span = max(base[0], total[0], slot[0]) - min(base[0], total[0], slot[0])
+-                    if (span <= 0x20 and slot[1] and total[1] // slot[1] >= 2 and
++                    if (span <= 0x20 and slot[1] and 2 <= total[1] // slot[1] <= 64 and
+                             total[1] >= slot[1] * (total[1] // slot[1])):
+                         candidates.append((base[1], total[1], slot[1]))
+     candidates = sorted(set(candidates))
+@@ -283,9 +283,9 @@ def input_map(data):
+                 if total[2:] != (2, 0, 0x52800000):
+                     continue
+                 for slot in items:
+-                    if slot[2:] != (9, 0, 0x52800000):
++                    if slot[2:] not in ((9, 0, 0x52800000), (10, 0, 0x52800000)):
+                         continue
+-                    if base_offset >= min(total[0], slot[0]):
++                    if slot[2] == 9 and base_offset >= min(total[0], slot[0]):
+                         continue
+                     if max(base_offset, total[0], slot[0]) - min(base_offset, total[0], slot[0]) > 0x24:
+                         continue

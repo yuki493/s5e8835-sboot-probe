@@ -1,0 +1,19 @@
+file  : fw/sboot.bin
+size  : 0x800000
+sha256: a8abc835e5b7337fd6ed6009abe74bde18882d8807841ae6d48e62eebf44f267
+s5e8835 marker: 0x5e43
+BSS-triple slice candidates: ['0x81000', '0xf1000']
+  reject 0x81000: LK BSS: []
+
+LK slice at 0xf1000
+base=0xf4800000 end=0xf6000000 bss=[0xf4c3d000,0xf507a908)
+
+PASS  parallel_download_init    (3464495104, 132120576, 31457280)
+PASS  compressed_download_init  (36775723008, 134217728, 33554432)
+FAIL  compressed output block   RuntimeError: compressed output: []
+FAIL  Odin setter/reply         RuntimeError: Odin setter: []
+FAIL  screen printf/cursor      IndexError: list index out of range
+PASS  blk_bread                 4102318936
+PASS  blk_bwrite                4102319444
+FAIL  em_crypto_sha256          RuntimeError: SHA-256 XREF not found
+FAIL  blk shift                 RuntimeError: block shift
